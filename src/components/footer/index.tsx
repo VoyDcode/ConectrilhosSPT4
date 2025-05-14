@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-[#00386B] text-white py-6 w-full">
+    <footer className="bg-[#00386B] text-white py-6 w-full mt-auto">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div className="md:w-1/2">
           <h3 className="font-bold text-lg md:text-xl mb-1">Conectrilhos</h3>

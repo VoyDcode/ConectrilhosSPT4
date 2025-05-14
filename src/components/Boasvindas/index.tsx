@@ -7,7 +7,7 @@ import {ContaType} from "@/types/ContaType"
  
  
 /**
- * Página Inicial do Portal PCD
+ * Página Inicial do Conectrilhos
  * Contém as seguintes seções:
  * - Hero section com mensagem de boas-vindas
  * - Serviços em destaque
@@ -40,11 +40,11 @@ export default function Home() {
       {Logado ? (
     
     <p className="text-lg mb-2">
-            Boas vindas, {Logado.nome} ao Portal PCD!
+            Boas vindas, {Logado.nome} ao Conectrilhos!
           </p>
   
 ) : (<p className="text-lg mb-2">
-  Boas vindas ao Portal PCD!
+  Boas vindas ao Conectrilhos!
 </p>)}
       <p className="text-base mb-8 opacity-90">
         Aqui você encontra informações, serviços e recursos para promover a acessibilidade e inclusão.
