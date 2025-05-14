@@ -28,26 +28,26 @@ export default function Home() {
 
 
     <section 
-    className="w-full bg-gradient-to-r from-blue-600 via-purple-500 to-fuchsia-500 text-white py-16 relative"
+    className="w-full bg-gradient-to-r from-blue-600  to-black text-white py-16 relative"
     aria-labelledby="hero-title"
   >
     <div className="container mx-auto px-4">
     <div className="container mx-auto px-4">
     <div className="max-w-4xl">
       <h1 id="hero-title" className="text-4xl font-bold mb-4">
-        Portal de Informação e Acessibilidade
+        Seja bem vindo ao Conectrilhos!
       </h1>
       {Logado ? (
     
     <p className="text-lg mb-2">
-            Boas vindas, {Logado.nome} ao Conectrilhos!
+            Tudo bem {Logado.nome}? esperamos que sim!
           </p>
   
 ) : (<p className="text-lg mb-2">
   Boas vindas ao Conectrilhos!
 </p>)}
       <p className="text-base mb-8 opacity-90">
-        Aqui você encontra informações, serviços e recursos para promover a acessibilidade e inclusão.
+        Aqui você pode relatar problemas e contribuir para um metrô mais limpo, eficiente e organizado.
       </p>
       <div className="flex gap-3">
         <Link 
@@ -60,17 +60,8 @@ export default function Home() {
     </div>
     </div>
      </div>
-            <div className="absolute right-0 bottom-0 opacity-10" aria-hidden="true">
-              <Image
-                src="/accessibility-icon.svg"
-                alt=""
-                width={200}
-                height={200}
-                className="brightness-0 invert"
-              />
-            </div>
-          </section>
-
+            
+    </section>
   )
 
 

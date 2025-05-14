@@ -12,16 +12,16 @@ export default function ServicosPage() {
           <div className="group">
             <div className="bg-rose-50 rounded-t-lg p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                Serviços de Saúde e Reabilitação
+                Cupons
               </h2>
               <p className="text-sm text-gray-600 mb-4">
-                Informações sobre centros de saúde, reabilitação e tratamentos para PCDs.
+                Veja status das solicitações dos cupons, validade e cupons disponiveis.
               </p>
               <Link
                 href="/cupons"
                 className="text-primary text-sm hover:underline"
               >
-                Clique para mais informações →
+                Visualizar
               </Link>
             </div>
           </div>
@@ -33,13 +33,13 @@ export default function ServicosPage() {
                 Alteração de Dados Cadastrais
               </h2>
               <p className="text-sm text-gray-600 mb-4">
-                Atualize suas informações pessoais e preferências no sistema.
+                Atualize suas informações pessoais e deixe com suas preferências em nosso sistema.
               </p>
               <Link
                 href="/perfil"
                 className="text-primary text-sm hover:underline"
               >
-                Clique para mais informações →
+                Clique para alterações cadastrais
               </Link>
             </div>
           </div>
@@ -48,16 +48,16 @@ export default function ServicosPage() {
           <div className="group">
             <div className="bg-blue-50 rounded-t-lg p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                Benefícios e Direitos
+                Notificar Problema
               </h2>
               <p className="text-sm text-gray-600 mb-4">
-                Guia sobre benefícios governamentais e direitos legais para PCDs.
+                Nós ajude a melhorar nossa eficiencia na organização, manutenção e limpeza dos metros, trens e estações!
               </p>
               <Link
                 href="/relatarProblema"
                 className="text-primary text-sm hover:underline"
               >
-                Clique para mais informações →
+                Abrir solicitação →
               </Link>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function ServicosPage() {
           <div className="group">
             <div className="bg-gray-100 rounded-t-lg p-6 flex flex-col items-center justify-center h-full">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">Página 1</h2>
-              <p className="text-sm text-gray-600 mb-4 text-center">Conteúdo do dia a dia do metrô em breve.</p>
+              <p className="text-sm text-gray-600 mb-4 text-center">Conteúdo será adicionado em breve.</p>
             </div>
           </div>
 
@@ -74,7 +74,7 @@ export default function ServicosPage() {
           <div className="group">
             <div className="bg-gray-100 rounded-t-lg p-6 flex flex-col items-center justify-center h-full">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">Página 2</h2>
-              <p className="text-sm text-gray-600 mb-4 text-center">Conteúdo do dia a dia do metrô em breve.</p>
+              <p className="text-sm text-gray-600 mb-4 text-center">Conteúdo será adicionado em breve.</p>
             </div>
           </div>
         </div>
