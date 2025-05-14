@@ -30,16 +30,18 @@ export default function ServicosPage() {
           <div className="group">
             <div className="bg-rose-50 rounded-t-lg p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                Relatar
+              Alteração de Dados Cadastrais
               </h2>
               <p className="text-sm text-gray-600 mb-4"> 
-               Nós auxilie relatando um acontecimento para a melhora de nossa eficiencia organização, manutenção e limpeza dos trens, metros e estações!
+
+              Atualize suas informações pessoais e deixe com suas preferências em nosso sistema.
+               
               </p>
               <Link
                 href="/perfil"
                 className="text-primary text-sm hover:underline"
               >
-                Abrir solicitação →
+              Clique para alterações cadastrais
               </Link>
             </div>
           </div>
@@ -48,21 +50,22 @@ export default function ServicosPage() {
           <div className="group">
             <div className="bg-blue-50 rounded-t-lg p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                Alteração de Dados Cadastrais
+              Relatar
               </h2>
               <p className="text-sm text-gray-600 mb-4">
-                Atualize suas informações pessoais e deixe com suas preferências em nosso sistema.
-                
+              Nós auxilie relatando um acontecimento para a melhorarmos nossa eficiencia em organização, manutenção e limpeza dos trens, metros e estações!
+              tornando os ambientes cada vez mais agradaveis.
               </p>
               <Link
                 href="/relatarProblema"
                 className="text-primary text-sm hover:underline"
               >
-                
-                Clique para alterações cadastrais
+                Abrir solicitação →
               </Link>
             </div>
           </div>
+
+          
 
           {/* Página 1 */}
           <div className="group">
