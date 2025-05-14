@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 
 export default function ServicosPage() {
@@ -17,8 +19,8 @@ export default function ServicosPage() {
               <p className="text-sm text-gray-600 mb-4">
                 Veja status das solicitações dos cupons, validade e cupons disponiveis.
               </p>
-              <Link
-                href="/cupons"
+              <Link 
+                href="/cupons" 
                 className="text-primary text-sm hover:underline"
               >
                 Visualizar
@@ -33,15 +35,13 @@ export default function ServicosPage() {
               Alteração de Dados Cadastrais
               </h2>
               <p className="text-sm text-gray-600 mb-4"> 
-
               Atualize suas informações pessoais e deixe com suas preferências em nosso sistema.
-               
               </p>
-              <Link
+              <Link 
                 href="/perfil"
                 className="text-primary text-sm hover:underline"
               >
-              Clique para alterações cadastrais
+                Clique para alterações cadastrais
               </Link>
             </div>
           </div>
@@ -56,16 +56,14 @@ export default function ServicosPage() {
               Nós auxilie relatando um acontecimento para a melhorarmos nossa eficiencia em organização, manutenção e limpeza dos trens, metros e estações!
               tornando os ambientes cada vez mais agradaveis.
               </p>
-              <Link
-                href="/relatarProblema"
+              <Link 
+                href="/relatarproblema"
                 className="text-primary text-sm hover:underline"
               >
                 Abrir solicitação →
               </Link>
             </div>
           </div>
-
-          
 
           {/* Página 1 */}
           <div className="group">
