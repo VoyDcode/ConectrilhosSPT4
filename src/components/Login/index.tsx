@@ -88,7 +88,7 @@ export default function index() {
         </form>
         <div className="mt-4 text-xs text-center flex flex-row items-center justify-center gap-1">
           <span className="text-gray-600">Caso não tenha cadastro</span>
-          <a href="#" className="text-black font-semibold hover:underline text-xs">Criar conta</a>
+          <a href="/cadastro" className="text-black font-semibold hover:underline text-xs">Criar conta</a>
         </div>
       </div>
     </section>
