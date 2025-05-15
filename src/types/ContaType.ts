@@ -1,6 +1,11 @@
 export type ContaType ={
-    id:number;
+    id?:number;
+    nome:string;
+    cpf:string;
     email:string;
     senha:string;
-    nome:string;
+    telefone:string;
+    nascimento:string;
+    genero:string;
+    
 }

@@ -4,48 +4,8 @@ import { useEffect} from 'react';
 import { useState } from "react";
 import { ContaType } from '@/types/ContaType';
 import { useRouter } from "next/navigation";
-import { listaDeContas } from '@/data/listaDeContas';
 
 export default function index() {
-
-  const navigate = useRouter();
-
-  const [ListaDecontas, setListaDeContas] = useState<ContaType[]>([])
-  
-  useEffect(() => {
-
-    const user = localStorage.getItem("usuarioLogado");
-    if (user) {
-      navigate.push("/");
-    }
-
-    if(!localStorage.getItem("ListaContas")){
-      localStorage.setItem("ListaContas", JSON.stringify(listaDeContas));
-    }
-    setListaDeContas(JSON.parse(localStorage.getItem("ListaContas") || "[]"))
-  }, []);
-
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-
-  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
-  const handleChangeSenha = (e: React.ChangeEvent<HTMLInputElement>) => setSenha(e.target.value);
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const ContaValida = ListaDecontas?.find(
-      (u) => u.email === email && u.senha === senha
-    );
-  
-    localStorage.setItem("usuarioLogado", JSON.stringify(ContaValida));
-
-    if (ContaValida) {
-      alert("login realizado com sucesso");
-      window.location.reload();
-    } else {
-      alert("Usuário ou senha inválidos!");
-    }
-  };
 
 
 
@@ -62,7 +22,7 @@ export default function index() {
             <input
               type="email"
               id="email"
-              onChange={handleChangeEmail}
+              onChange={handleChange}
               name="email"
               className="w-full bg-[#F3F3F3] border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-900"
               required
@@ -71,7 +31,7 @@ export default function index() {
           <div>
             <label htmlFor="password" className="block text-sm font-bold text-black mb-1">Senha:</label>
             <input
-              onChange={handleChangeSenha}
+              onChange={handleChange}
               type="password"
               id="password"
               name="password"
