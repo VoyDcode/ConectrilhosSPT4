@@ -7,6 +7,49 @@ import { useRouter } from "next/navigation";
 
 export default function index() {
 
+  const navigate = useRouter();
+  const [loginData, setLoginData] = useState({
+    email: "",
+    senha: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setLoginData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("http://localhost:8080/passageiro/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: loginData.email,
+        senha: loginData.senha
+      })
+    });
+
+    if (!response.ok) {
+      console.log(loginData)
+      throw new Error("Login inválido");
+      
+    }
+
+    const usuarioLogado = await response.json();
+    localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
+    alert("Login realizado com sucesso!");
+    navigate.push("/")
+  } catch (error) {
+    alert("Usuário ou senha inválidos.");
+    console.error("Erro no login:", error);
+  }
+  };
 
 
   return (
@@ -33,8 +76,8 @@ export default function index() {
             <input
               onChange={handleChange}
               type="password"
-              id="password"
-              name="password"
+              id="senha"
+              name="senha"
               className="w-full bg-[#F3F3F3] border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-900"
               required
             />
