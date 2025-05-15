@@ -1,42 +1,63 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { ContaType } from '@/types/ContaType';
+import { useState, useRef, useEffect } from 'react'
+import { useRouter } from "next/navigation";
 
 export default function RelatarProblemaPage() {
-  const [formData, setFormData] = useState({
-    linha: '',
-    estacao: '',
-    dataHora: '',
-    localizacao: '',
+
+  const [problema, setProblema] = useState({
+    data: '',
     descricao: '',
-    imagem: null as File | null
+    id_passageiro: ''
   })
-  const fileInputRef = useRef<HTMLInputElement>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Aqui você pode adicionar a lógica para enviar os dados
-    console.log('Dados do formulário:', formData)
-  }
+  const navigate = useRouter();
+  const [Logado, setLogado] = useState<ContaType | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, files } = e.target as HTMLInputElement
-    if (name === 'imagem' && files && files[0]) {
-      setFormData(prev => ({
+
+  useEffect(() => {
+    const usuario = localStorage.getItem("usuarioLogado");
+    if (usuario) {
+      const parsedUsuario = JSON.parse(usuario);
+      setProblema((prev) => ({
         ...prev,
-        imagem: files[0]
-      }))
+        id_passageiro: String(parsedUsuario?.id)
+      }));
     } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }))
-    }
+    navigate.push("/");
   }
+  }, [Logado]);
 
-  const handleImageClick = () => {
-    fileInputRef.current?.click()
+   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setProblema({ ...problema, [name]: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+
+  try {
+    const response = await fetch("http://localhost:8080/problema", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(problema)
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao relatar problema.");
+    }
+
+    alert("Problema relatado com sucesso!");
+  } catch (error) {
+    console.error("Erro ao relatar:", error);
+    alert("Erro ao relatar problema.");
   }
+};
+  
 
   return (
     <main className="min-h-screen bg-white py-8">
@@ -47,93 +68,22 @@ export default function RelatarProblemaPage() {
 
         <div className="max-w-3xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
               <div>
-                <label htmlFor="linha" className="block text-sm font-medium text-gray-900 mb-1">
-                  Linha
+                <label htmlFor="data" className="block text-sm font-medium text-gray-900 mb-1">
+                  Data
                 </label>
                 <input
-                  type="text"
-                  id="linha"
-                  name="linha"
-                  value={formData.linha}
+                  type="date"
+                  id="data"
+                  name="data"
+                  value={problema.data}
                   onChange={handleChange}
                   className="w-full p-2 bg-gray-100 rounded-md"
                   required
                 />
               </div>
-              <div>
-                <label htmlFor="dataHora" className="block text-sm font-medium text-gray-900 mb-1">
-                  Data e hora
-                </label>
-                <input
-                  type="datetime-local"
-                  id="dataHora"
-                  name="dataHora"
-                  value={formData.dataHora}
-                  onChange={handleChange}
-                  className="w-full p-2 bg-gray-100 rounded-md"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="estacao" className="block text-sm font-medium text-gray-900 mb-1">
-                  Estação
-                </label>
-                <input
-                  type="text"
-                  id="estacao"
-                  name="estacao"
-                  value={formData.estacao}
-                  onChange={handleChange}
-                  className="w-full p-2 bg-gray-100 rounded-md"
-                  required
-                />
-              </div>
-              <div className="flex flex-col">
-                <label className="block text-sm font-medium text-gray-900 mb-1">
-                  Comprovação visual
-                </label>
-                <button
-                  type="button"
-                  onClick={handleImageClick}
-                  className="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-md border border-gray-300 hover:bg-gray-200 focus:outline-none"
-                  aria-label="Adicionar foto"
-                >
-                  {/* Ícone de câmera SVG */}
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75V8.25A2.25 2.25 0 014.5 6h2.379a1.5 1.5 0 001.06-.44l.621-.62A1.5 1.5 0 0110.56 4.5h2.88a1.5 1.5 0 011.06.44l.62.62a1.5 1.5 0 001.061.44H19.5a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-15A2.25 2.25 0 012.25 15.75z" />
-                    <circle cx="12" cy="13" r="3.25" />
-                  </svg>
-                </button>
-                <input
-                  type="file"
-                  accept="image/*"
-                  name="imagem"
-                  ref={fileInputRef}
-                  onChange={handleChange}
-                  className="hidden"
-                />
-                {formData.imagem && (
-                  <span className="text-xs mt-1 text-gray-600 truncate">{formData.imagem.name}</span>
-                )}
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="localizacao" className="block text-sm font-medium text-gray-900 mb-1">
-                Como localizar
-              </label>
-              <textarea
-                id="localizacao"
-                name="localizacao"
-                value={formData.localizacao}
-                onChange={handleChange}
-                rows={3}
-                className="w-full p-2 bg-gray-100 rounded-md"
-                required
-              />
-            </div>
+              
 
             <div>
               <label htmlFor="descricao" className="block text-sm font-medium text-gray-900 mb-1">
@@ -142,7 +92,7 @@ export default function RelatarProblemaPage() {
               <textarea
                 id="descricao"
                 name="descricao"
-                value={formData.descricao}
+                value={problema.descricao}
                 onChange={handleChange}
                 rows={4}
                 className="w-full p-2 bg-gray-100 rounded-md"

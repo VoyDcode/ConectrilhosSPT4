@@ -19,17 +19,9 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    try {
-      const usuario = localStorage.getItem("usuarioLogado");
-      if (usuario) {
-        const parsedUsuario = JSON.parse(usuario);
-        if (parsedUsuario && typeof parsedUsuario === 'object') {
-          setLogado(parsedUsuario);
-        }
-      }
-    } catch (error) {
-      console.error('Erro ao carregar usuário:', error);
-      localStorage.removeItem("usuarioLogado");
+    const usuario = localStorage.getItem("usuarioLogado");
+    if (usuario) {
+      setLogado(JSON.parse(usuario));
     }
   }, []);
 
@@ -45,12 +37,18 @@ export default function Header() {
         <Link href="/" className="font-bold text-xl text-white" style={{fontFamily: 'inherit'}}>
           Conectrilhos
         </Link>
-        {!(pathname === '/login' || pathname === '/cadastro') && (
-          <nav className="flex gap-4 items-center">
-            <Link href="/" className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded hover:bg-blue-800 transition-colors">Serviços</Link>
+        {Logado ?(<nav className="flex gap-4 items-center">
+            <Link href="/servicos" className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded hover:bg-blue-800 transition-colors">Serviços</Link>
             <button onClick={handleLogout} className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded hover:bg-blue-800 transition-colors border-none cursor-pointer">Sair</button>
           </nav>
-        )}
+          ):(<nav>
+            <Link href="/cadastro" className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded hover:bg-blue-800 transition-colors">Cadastro</Link>
+            <Link href="/login" className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded hover:bg-blue-800 transition-colors">login</Link>
+          </nav>) 
+        
+        
+          
+        } 
       </div>
     </header>
   )
