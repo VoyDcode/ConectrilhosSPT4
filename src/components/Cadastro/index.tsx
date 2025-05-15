@@ -5,7 +5,12 @@ import { useEffect, useState } from "react";
 
 export default function Cadastro() {
   const navigate = useRouter();
-const [conta, setConta] = useState<Omit<ContaType,"id">>({
+  useEffect(() => {
+      const user = localStorage.getItem("usuarioLogado");
+      if (user) {
+        navigate.push("/");
+      }});
+  const [conta, setConta] = useState<Omit<ContaType,"id">>({
     nome: "",
     cpf: "",
     email: "",
@@ -38,7 +43,7 @@ const [conta, setConta] = useState<Omit<ContaType,"id">>({
     }
 
     alert("Conta cadastrada com sucesso!");
-    navigate.push("/login");
+    navigate.push("/");
   } catch (error) {
     console.error("Erro ao cadastrar:", error);
     alert("Erro ao cadastrar conta.");

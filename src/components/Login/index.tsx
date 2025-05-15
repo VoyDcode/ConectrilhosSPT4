@@ -8,6 +8,11 @@ import { useRouter } from "next/navigation";
 export default function index() {
 
   const navigate = useRouter();
+  useEffect(() => {
+      const user = localStorage.getItem("usuarioLogado");
+      if (user) {
+        navigate.push("/");
+      }});
   const [loginData, setLoginData] = useState({
     email: "",
     senha: "",
@@ -44,7 +49,7 @@ export default function index() {
     const usuarioLogado = await response.json();
     localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
     alert("Login realizado com sucesso!");
-    navigate.push("/")
+    window.location.reload();
   } catch (error) {
     alert("Usuário ou senha inválidos.");
     console.error("Erro no login:", error);

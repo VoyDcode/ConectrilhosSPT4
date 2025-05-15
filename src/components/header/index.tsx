@@ -16,7 +16,6 @@ import { usePathname } from 'next/navigation';
 export default function Header() {
 
   const [Logado, setLogado] = useState<ContaType | null>(null);
-  const pathname = usePathname();
 
   useEffect(() => {
     const usuario = localStorage.getItem("usuarioLogado");
