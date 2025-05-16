@@ -1,9 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
-// Constantes
+
+// Cores utilizadas no layout
 const COLORS = {
   primary: '#00386B',
   background: '#ECECEC',
@@ -17,9 +19,8 @@ const COLORS = {
 // Interfaces
 interface AccordionItem {
   id: string
-  title: string
-  content: string
-  status?: string
+  data: string
+  descricao: string
 }
 
 interface AccordionItemProps {
@@ -29,7 +30,7 @@ interface AccordionItemProps {
   index: number
 }
 
-// Componente AccordionItem
+// Componente de um único item do acordeão
 const AccordionItem = ({ item, isOpen, onToggle, index }: AccordionItemProps) => {
   return (
     <div className="w-full">
@@ -40,7 +41,7 @@ const AccordionItem = ({ item, isOpen, onToggle, index }: AccordionItemProps) =>
         aria-controls={`accordion-content-${index}`}
         role="button"
       >
-        <span className="font-medium">{item.title}</span>
+        <span className="font-medium">{item.data}</span>
         <span className="text-white" aria-hidden="true">
           {isOpen ? '−' : '+'}
         </span>
@@ -51,39 +52,46 @@ const AccordionItem = ({ item, isOpen, onToggle, index }: AccordionItemProps) =>
           id={`accordion-content-${index}`}
           className="bg-[#E9E9E9] rounded-b px-4 py-3 text-black"
           role="region"
-          aria-label={`Conteúdo do ${item.title}`}
+          aria-label={`Conteúdo do problema em ${item.data}`}
         >
-          {item.status && (
-            <div className="font-semibold mb-2">Status: {item.status}</div>
-          )}
-          <p className="text-sm">{item.content}</p>
+          <p className="text-sm">{item.descricao}</p>
         </div>
       )}
     </div>
   )
 }
 
-// Componente Principal
+// Componente principal da página
 export default function CuponsPage() {
+  const navigate = useRouter()
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [accordionItems, setAccordionItems] = useState<AccordionItem[]>([])
 
-  const accordionItems: AccordionItem[] = [
-    {
-      id: '1',
-      title: "Cupom: Reparo - Banco na estação Pinheiros",
-      content: "Detalhes do reparo solicitado para o banco na estação Pinheiros.",
-      status: "Resgatado"
+  // Busca os problemas na API ao carregar a página
+  useEffect(() => {
+    const usuario = localStorage.getItem("usuarioLogado")
+      if (!usuario) {
+    navigate.push("/")
+    return;
+  }
+    const parsedusuario = JSON.parse(usuario);
+    async function fetchProblemas() {
+      try {
+        const res = await fetch(`http://localhost:8080/problema/${parsedusuario.id}`) // substitua pela sua URL real
+        const data = await res.json()
+        setAccordionItems(data)
+        console.log('Dados do fetch:', data);
+      } catch (error) {
+        console.error("Erro ao buscar problemas:", error)
+      }
     }
-  ]
 
+    fetchProblemas()
+  }, [])
+
+  // Alterna o acordeão aberto
   const toggleAccordion = (index: number): void => {
-    try {
-      setOpenIndex(openIndex === index ? null : index)
-    } catch (error) {
-      console.error('Erro ao alternar acordeão:', error)
-      // Aqui você pode adicionar um tratamento de erro mais específico
-      // como mostrar uma mensagem para o usuário
-    }
+    setOpenIndex(openIndex === index ? null : index)
   }
 
   return (
@@ -96,16 +104,16 @@ export default function CuponsPage() {
           id="titulo-cupons" 
           className="text-2xl font-bold mb-6 text-center"
         >
-          Cupons
+          Operações Solicitadas
         </h1>
         
-        {/* Acordeão de Cupons */}
+        {/* Lista de Acordeões */}
         <div className="w-full mb-6">
-          <h2 className="text-base font-semibold mb-4">Operações solicitadas</h2>
+          <h2 className="text-base font-semibold mb-4">Problemas Relatados</h2>
           <div 
             className="space-y-2"
             role="list"
-            aria-label="Lista de cupons disponíveis"
+            aria-label="Lista de problemas"
           >
             {accordionItems.map((item, index) => (
               <AccordionItem
@@ -119,7 +127,7 @@ export default function CuponsPage() {
           </div>
         </div>
 
-        {/* Botão Relatar Problema */}
+        {/* Botão para relatar novo problema */}
         <Link
           href="/relatarProblema"
           className="w-60 bg-[#00386B] text-white font-semibold py-2 rounded hover:bg-blue-800 transition-colors mt-4 text-center"
@@ -131,4 +139,4 @@ export default function CuponsPage() {
       </div>
     </section>
   )
-} 
+}
