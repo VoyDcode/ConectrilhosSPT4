@@ -10,7 +10,7 @@ export default function ServicosPage() {
           Serviços
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Card Saúde */}
+          {/* Card cupons */}
           <div className="group">
             <div className="bg-rose-50 rounded-t-lg p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
@@ -46,7 +46,7 @@ export default function ServicosPage() {
             </div>
           </div>
 
-          {/* Card Benefícios */}
+          {/* Card relatar problema */}
           <div className="group">
             <div className="bg-blue-50 rounded-t-lg p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
@@ -60,24 +60,23 @@ export default function ServicosPage() {
                 href="/relatarproblema"
                 className="text-primary text-sm hover:underline"
               >
-                Abrir solicitação →
+                Abrir solicitação
               </Link>
             </div>
           </div>
 
-          {/* Página 1 */}
+          {/* Card problemas relatados */}
           <div className="group">
-            <div className="bg-gray-100 rounded-t-lg p-6 flex flex-col items-center justify-center h-full">
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">Página 1</h2>
-              <p className="text-sm text-gray-600 mb-4 text-center">Conteúdo será adicionado em breve.</p>
-            </div>
-          </div>
-
-          {/* Página 2 */}
-          <div className="group">
-            <div className="bg-gray-100 rounded-t-lg p-6 flex flex-col items-center justify-center h-full">
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">Página 2</h2>
-              <p className="text-sm text-gray-600 mb-4 text-center">Conteúdo será adicionado em breve.</p>
+            <div className="bg-gray-100 rounded-t-lg p-6">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">Problemas Relatados</h2>
+              <p className="text-sm text-gray-600 mb-4">Aqui você pode ver os problemas que relatou
+Acompanhe todos os relatos feitos por você e fique por dentro do andamento de cada um.</p>
+  <Link 
+                href="/problemasrelatados"
+                className="text-primary text-sm hover:underline"
+              >
+                Clique para alterações cadastrais
+              </Link>
             </div>
           </div>
         </div>
