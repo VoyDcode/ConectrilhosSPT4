@@ -37,12 +37,12 @@ export default function Header() {
           Conectrilhos
         </Link>
         {Logado ?(<nav className="flex gap-4 items-center">
-            <Link href="/servicos" className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded hover:bg-blue-800 transition-colors">Serviços</Link>
-            <button onClick={handleLogout} className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded hover:bg-blue-800 transition-colors border-none cursor-pointer">Sair</button>
+            <Link href="/servicos" className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded transition-colors">Serviços</Link>
+            <button onClick={handleLogout} className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded transition-colors border-none cursor-pointer">Sair</button>
           </nav>
           ):(<nav>
-            <Link href="/cadastro" className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded hover:bg-blue-800 transition-colors">Cadastro</Link>
-            <Link href="/login" className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded hover:bg-blue-800 transition-colors">login</Link>
+            <Link href="/cadastro" className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded transition-colors border-none cursor-pointer text-decoration: none">Cadastro</Link>
+            <Link href="/login" className="bg-[#00386B] text-white font-semibold px-4 py-2 rounded transition-colors">login</Link>
           </nav>) 
         
         
