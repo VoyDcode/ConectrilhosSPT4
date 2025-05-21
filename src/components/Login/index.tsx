@@ -29,7 +29,7 @@ export default function index() {
   e.preventDefault();
 
   try {
-    const response = await fetch("http://localhost:8080/passageiro/login", {
+    const response = await fetch("https://sprint4ddd-production.up.railway.app/passageiro/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
