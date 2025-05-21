@@ -53,7 +53,7 @@ export default function PerfilPage() {
 
 
     try {
-      const response = await fetch(`http://localhost:8080/passageiro/atualizar/${conta.id}`, {
+      const response = await fetch(`https://sprint4ddd-production.up.railway.app/passageiro/atualizar/${conta.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"

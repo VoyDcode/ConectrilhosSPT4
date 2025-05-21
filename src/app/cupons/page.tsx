@@ -77,7 +77,7 @@ export default function CuponsPage() {
     const parsedusuario = JSON.parse(usuario);
     async function fetchProblemas() {
       try {
-        const res = await fetch(`http://localhost:8080/problema/${parsedusuario.id}`) // substitua pela sua URL real
+        const res = await fetch(`hhtps://sprint4ddd-production.up.railway.app/problema/${parsedusuario.id}`) // substitua pela sua URL real
         const data = await res.json()
         setAccordionItems(data)
         console.log('Dados do fetch:', data);

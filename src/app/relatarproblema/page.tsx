@@ -39,7 +39,7 @@ export default function RelatarProblemaPage() {
 
 
   try {
-    const response = await fetch("http://localhost:8080/problema", {
+    const response = await fetch("https://sprint4ddd-production.up.railway.app/problema", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
