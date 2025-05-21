@@ -76,7 +76,7 @@ export default function ProblemasRelatadospage() {
     const parsedusuario = JSON.parse(usuario);
     async function fetchProblemas() {
       try {
-        const res = await fetch(`http://localhost:8080/problema/${parsedusuario.id}`) // substitua pela sua URL real
+        const res = await fetch(`https:sprint4ddd-production.up.railway.app/problema/${parsedusuario.id}`) // substitua pela sua URL real
         const data = await res.json()
         setAccordionItems(data)
         console.log('Dados do fetch:', data);
@@ -128,7 +128,7 @@ export default function ProblemasRelatadospage() {
 
         {/* Botão para relatar novo problema */}
         <Link
-          href="/relatarProblema"
+          href="/relatarproblema"
           className="w-60 bg-[#00386B] text-white font-semibold py-2 rounded hover:bg-blue-800 transition-colors mt-4 text-center"
           aria-label="Ir para página de relatar problema"
           role="button"

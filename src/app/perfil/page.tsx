@@ -78,7 +78,7 @@ export default function PerfilPage() {
     if (!confirmacao || !conta.id) return;
 
     try {
-      const response = await fetch(`http://localhost:8080/passageiro/deletar/${conta.id}`, {
+      const response = await fetch(`https://sprint4ddd-production.up.railway.app/passageiro/deletar/${conta.id}`, {
         method: "DELETE"
       });
 
