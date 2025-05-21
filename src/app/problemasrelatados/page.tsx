@@ -29,8 +29,7 @@ interface AccordionItemProps {
   onToggle: () => void
   index: number
 }
-
-// Componente de um único item do acordeão
+/* Componente de um único item do acordeão */
 const AccordionItem = ({ item, isOpen, onToggle, index }: AccordionItemProps) => {
   return (
     <div className="w-full">
@@ -61,13 +60,13 @@ const AccordionItem = ({ item, isOpen, onToggle, index }: AccordionItemProps) =>
   )
 }
 
-// Componente principal da página
+/* Componente principal da página */
 export default function ProblemasRelatadospage() {
   const navigate = useRouter()
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [accordionItems, setAccordionItems] = useState<AccordionItem[]>([])
 
-  // Busca os problemas na API ao carregar a página
+  /* Busca os problemas na API ao carregar a página */
   useEffect(() => {
     const usuario = localStorage.getItem("usuarioLogado")
       if (!usuario) {
@@ -89,7 +88,7 @@ export default function ProblemasRelatadospage() {
     fetchProblemas()
   }, [])
 
-  // Alterna o acordeão aberto
+  /* Alterna o acordeão aberto */
   const toggleAccordion = (index: number): void => {
     setOpenIndex(openIndex === index ? null : index)
   }
