@@ -30,7 +30,7 @@ export default function Cadastro() {
 
 
   try {
-    const response = await fetch("sprint4ddd-production.up.railway.app/passageiro", {
+    const response = await fetch("https://sprint4ddd-production.up.railway.app/passageiro", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
