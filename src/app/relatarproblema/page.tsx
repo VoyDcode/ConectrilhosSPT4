@@ -25,7 +25,7 @@ export default function RelatarProblemaPage() {
         id_passageiro: String(parsedUsuario?.id)
       }));
     } else {
-    navigate.push("/");
+    navigate.push("/login");
   }
   }, [Logado]);
 
