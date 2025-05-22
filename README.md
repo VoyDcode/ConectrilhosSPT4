@@ -12,15 +12,10 @@
 
 O projeto Conectrilhos foi desenvolvido utilizando Next.js 15.2.3, com foco em boas práticas de desenvolvimento, garantindo organização semântica, responsividade e experiência de usuário intuitiva.
 Este projeto foi desenvolvido com o intuito de aprimorar a experiência dos usuários de transporte público, oferecendo informações claras e atualizadas.
----
-
-# 📄 Documentação das Páginas do Projeto Conectrilhos
-
-Este documento descreve as principais páginas da aplicação **Conectrilhos**, com foco em suas funcionalidades, componentes utilizados e comportamento esperado.
 
 ---
 
-## 📝 Página de Problemas Relatados (`problemasrelatados.tsx`)
+## Página de Problemas Relatados
 
 **Descrição:**  
 Apresenta uma lista dinâmica dos problemas previamente relatados pelo usuário.
@@ -29,15 +24,14 @@ Apresenta uma lista dinâmica dos problemas previamente relatados pelo usuário.
 - Requisição `fetch` para exibir os problemas relacionados ao usuário logado.
 - Exibição interativa com botões `accordion`, utilizando `aria-*` para acessibilidade.
 - Validação de sessão com redirecionamento para login caso não esteja autenticado.
-- Estilo consistente com as cores da marca.
 - Botão para relatar novo problema via `<Link>`.
 
 ---
 
-## 🚨 Página de Relatar Problema (`relatarproblema.tsx`)
+## Página de Relatar Problema 
 
 **Descrição:**  
-Permite que o usuário relate um problema ocorrido no sistema de transporte.
+Permite que o usuário relate um problema ocorrido no trajeto pelas estações.
 
 **Características:**
 - Formulário com campos de data e descrição.
@@ -48,20 +42,18 @@ Permite que o usuário relate um problema ocorrido no sistema de transporte.
 
 ---
 
-## 🧩 Página de Serviços com Cards (`servicos.tsx`)
+## Página de Serviços com Cards 
 
 **Descrição:**  
 Interface em grade com atalhos rápidos para funcionalidades como cupons, perfil, relato de problemas e visualização de problemas já relatados.
 
 **Características:**
 - Layout `grid` responsivo com `div` e `Link`.
-- Cards com cores temáticas (`rose-50`, `blue-50`, `gray-100`).
 - Links para:  
   - **Cupons** (`/cupons`)  
   - **Perfil** (`/perfil`)  
   - **Relatar Problema** (`/relatarproblema`)  
   - **Problemas Relatados** (`/problemasrelatados`)  
-- Proteção de rota com verificação de autenticação.
 
 ---
 
