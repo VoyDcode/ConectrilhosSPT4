@@ -1,7 +1,10 @@
+⚠️ Aviso: A API utilizada pode apresentar instabilidades, pois a versão de teste expirou e está entrando em conflito com o projeto Java. Estou buscando uma solução. Obrigada pela compreensão!
+
+
+
 # Front-End Design Engineering  
 ### **Turma:** 1TDSPB 
 
-⚠️ Aviso: A API utilizada pode apresentar instabilidades, pois a versão de teste expirou e está entrando em conflito com o projeto Java. Estou buscando uma solução. Obrigada pela compreensão!
 
 ---
 
