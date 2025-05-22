@@ -14,44 +14,114 @@ O projeto Conectrilhos foi desenvolvido utilizando Next.js 15.2.3, com foco em b
 Este projeto foi desenvolvido com o intuito de aprimorar a experiência dos usuários de transporte público, oferecendo informações claras e atualizadas.
 ---
 
-## Estrutura Geral do Projeto
+# 📄 Documentação das Páginas do Projeto Conectrilhos
 
-### **Página Inicial (Home.tsx)**  
-**Descrição:** Apresenta o projeto Conectrilhos e exibe a interface de login do usuário..  
+Este documento descreve as principais páginas da aplicação **Conectrilhos**, com foco em suas funcionalidades, componentes utilizados e comportamento esperado.
+
+---
+
+## 📝 Página de Problemas Relatados (`problemasrelatados.tsx`)
+
+**Descrição:**  
+Apresenta uma lista dinâmica dos problemas previamente relatados pelo usuário.
+
 **Características:**
-- Exibição do título principal da aplicação.  
-- Com a utilização de (`form`),(`div`),(`input`) e (`label`) possibilitamos campos de entrada para usuário e senha. contendo também a inclusão de botão com ícone interativo para exibição da senha.
-- Design limpo e direto, garantindo usabilidade e acessibilidade.
+- Requisição `fetch` para exibir os problemas relacionados ao usuário logado.
+- Exibição interativa com botões `accordion`, utilizando `aria-*` para acessibilidade.
+- Validação de sessão com redirecionamento para login caso não esteja autenticado.
+- Estilo consistente com as cores da marca.
+- Botão para relatar novo problema via `<Link>`.
 
 ---
 
-### **Página de Serviços (page.tsx)**  
-**Descrição:** Exibe diversas informações úteis para o usuário sobre os serviços do sistema de transporte.  
+## 🚨 Página de Relatar Problema (`relatarproblema.tsx`)
+
+**Descrição:**  
+Permite que o usuário relate um problema ocorrido no sistema de transporte.
+
 **Características:**
-- Há um campos de entrada no inicio da pagina utilizando (`<section>`) e (`<SearchBar>`) para o usuário possibilitando pesquisa dinâmica com a intenção de filtrar serviços.
-- Mapas: Visualização interativa das linhas de transporte.  
-- Status do Sistema: Atualizações em tempo real das operações.
-- Mensagens do Sistema: Comunicados oficiais e avisos.
-- Informações Gerais: Tarifas, horários e orientações.
-- O codigo utilizado majoratoriamente para as "blocagens" de codigo foi a tag (`<section>`).
+- Formulário com campos de data e descrição.
+- Integração com os dados do usuário via `localStorage`.
+- Envio dos dados para a API usando `fetch` com método `POST`.
+- Feedback ao usuário com mensagens de sucesso ou erro.
+- Proteção por autenticação com redirecionamento ao login.
 
 ---
 
-### **Página de suporte ao usuário (faq.tsx)**  
-**Descrição:**  Página interativa que responde às dúvidas mais comuns dos usuários, totalmente dedicadas a cupons, status da via, carteira digital e suporte ao usuário.
+## 🧩 Página de Serviços com Cards (`servicos.tsx`)
+
+**Descrição:**  
+Interface em grade com atalhos rápidos para funcionalidades como cupons, perfil, relato de problemas e visualização de problemas já relatados.
+
 **Características:**
-- Estrutura com foco na interatividade dinamica, utilizando tags como `<accordion>` e `<div>` para a visibilidade da expansão e retenção dos tópicos .   
-- Design consistente com a identidade visual do projeto. Alta responsividade para garantir uma experiência fluida.  
-- Campo de busca integrado para facilitar a busca de dúvidas frequentes.
-
+- Layout `grid` responsivo com `div` e `Link`.
+- Cards com cores temáticas (`rose-50`, `blue-50`, `gray-100`).
+- Links para:  
+  - **Cupons** (`/cupons`)  
+  - **Perfil** (`/perfil`)  
+  - **Relatar Problema** (`/relatarproblema`)  
+  - **Problemas Relatados** (`/problemasrelatados`)  
+- Proteção de rota com verificação de autenticação.
 
 ---
 
-### **Video de Apresentração do Projeto:**
-- https://drive.google.com/file/d/1ntEdCbE6jq4ZkvHJNWDfMoqzMoVVVf5F/view
- 
+## 🔑 Página de Login (`index.tsx`)
+
+**Descrição:**  
+Página onde os usuários podem realizar login no sistema.
+
+**Características:**
+- **Autenticação:** Verifica se o usuário já está logado utilizando `localStorage`. Caso contrário, exibe a tela de login.
+- **Campos:** 
+  - E-mail
+  - Senha
+- **Funcionalidade:**
+  - Realiza o envio dos dados via `fetch` para a API de login, utilizando o método `POST`.
+  - Caso o login seja bem-sucedido, os dados do usuário são armazenados no `localStorage` e a página é recarregada.
+  - Caso contrário, exibe um alerta informando erro na autenticação.
+- **Layout:**  
+  - Design responsivo e clean.
+  - Campo de texto para e-mail e senha.
+  - Botão de login com feedback de erro em caso de falha.
+
+**Estrutura de Código:**
+- **`useState`** para gerenciamento dos dados de login.
+- **`useEffect`** para redirecionar usuários logados para a página principal.
+- **`fetch`** para comunicação com a API de login.
+
 ---
 
+## 📝 Página de Cadastro (`Cadastro.tsx`)
+
+**Descrição:**  
+Página de cadastro de novos usuários para o sistema.
+
+**Características:**
+- **Autenticação:** Verifica se o usuário já está logado e redireciona para a página principal, caso afirmativo.
+- **Campos:**
+  - Nome Completo
+  - CPF
+  - E-mail
+  - Telefone
+  - Data de Nascimento
+  - Senha
+  - Gênero (Masculino, Feminino, Não binário, Outro)
+- **Funcionalidade:**
+  - Realiza o envio dos dados via `fetch` para a API de cadastro, utilizando o método `POST`.
+  - Em caso de sucesso, o usuário é redirecionado para a página inicial.
+  - Em caso de erro, exibe um alerta informando o problema no cadastro.
+- **Layout:**  
+  - Design responsivo.
+  - Campos de entrada bem definidos.
+  - Grupo de botões de gênero (radio buttons).
+  - Botão de cadastro com feedback de erro ou sucesso.
+
+**Estrutura de Código:**
+- **`useState`** para gerenciar os dados do formulário de cadastro.
+- **`useEffect`** para garantir que usuários logados não acessem a página de cadastro.
+- **`fetch`** para comunicação com a API de cadastro.
+
+---
 
 ### Membros do Projeto
 Feedbacks são bem-vindos para melhorias contínuas! 🚆🚀
