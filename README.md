@@ -57,7 +57,7 @@ Interface em grade com atalhos rápidos para funcionalidades como cupons, perfil
 
 ---
 
-## 🔑 Página de Login (`index.tsx`)
+## Página de Login (`index.tsx`)
 
 **Descrição:**  
 Página onde os usuários podem realizar login no sistema.
@@ -71,19 +71,10 @@ Página onde os usuários podem realizar login no sistema.
   - Realiza o envio dos dados via `fetch` para a API de login, utilizando o método `POST`.
   - Caso o login seja bem-sucedido, os dados do usuário são armazenados no `localStorage` e a página é recarregada.
   - Caso contrário, exibe um alerta informando erro na autenticação.
-- **Layout:**  
-  - Design responsivo e clean.
-  - Campo de texto para e-mail e senha.
-  - Botão de login com feedback de erro em caso de falha.
-
-**Estrutura de Código:**
-- **`useState`** para gerenciamento dos dados de login.
-- **`useEffect`** para redirecionar usuários logados para a página principal.
-- **`fetch`** para comunicação com a API de login.
 
 ---
 
-## 📝 Página de Cadastro (`Cadastro.tsx`)
+## Página de Cadastro (`Cadastro.tsx`)
 
 **Descrição:**  
 Página de cadastro de novos usuários para o sistema.
@@ -102,21 +93,11 @@ Página de cadastro de novos usuários para o sistema.
   - Realiza o envio dos dados via `fetch` para a API de cadastro, utilizando o método `POST`.
   - Em caso de sucesso, o usuário é redirecionado para a página inicial.
   - Em caso de erro, exibe um alerta informando o problema no cadastro.
-- **Layout:**  
-  - Design responsivo.
-  - Campos de entrada bem definidos.
-  - Grupo de botões de gênero (radio buttons).
-  - Botão de cadastro com feedback de erro ou sucesso.
-
-**Estrutura de Código:**
-- **`useState`** para gerenciar os dados do formulário de cadastro.
-- **`useEffect`** para garantir que usuários logados não acessem a página de cadastro.
-- **`fetch`** para comunicação com a API de cadastro.
 
 ---
 
 ### Membros do Projeto
-Feedbacks são bem-vindos para melhorias contínuas! 🚆🚀
+Feedbacks são bem-vindos para melhorias contínuas!
 
 | Gabriel Gomes                                                                                   | Natasha Mauricio                                                                               | Victor Rodrigues                                                                              |
 |-------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
