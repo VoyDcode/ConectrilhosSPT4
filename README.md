@@ -1,4 +1,4 @@
-⚠️ Aviso: A API utilizada pode apresentar instabilidades, pois a versão de teste expirou e está entrando em conflito com o projeto Java. Estou buscando uma solução. Obrigada pela compreensão!
+⚠️ Aviso: A API utilizada pode apresentar instabilidades, pois a versão de teste expirou.
 
 
 
