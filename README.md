@@ -1,5 +1,9 @@
 # Front-End Design Engineering  
-### **Turma:** 1TDSPB  
+### **Turma:** 1TDSPB 
+
+⚠️ Aviso: A API utilizada pode apresentar instabilidades, pois a versão de teste expirou e está entrando em conflito com o projeto Java. Estou buscando uma solução. Obrigada pela compreensão!
+
+---
 
 O projeto Conectrilhos foi desenvolvido utilizando Next.js 15.2.3, com foco em boas práticas de desenvolvimento, garantindo organização semântica, responsividade e experiência de usuário intuitiva.
 Este projeto foi desenvolvido com o intuito de aprimorar a experiência dos usuários de transporte público, oferecendo informações claras e atualizadas.
@@ -38,7 +42,7 @@ Este projeto foi desenvolvido com o intuito de aprimorar a experiência dos usu�
 
 ---
 
-**Video de Apresentração do Projeto:**
+### **Video de Apresentração do Projeto:**
 - https://drive.google.com/file/d/1ntEdCbE6jq4ZkvHJNWDfMoqzMoVVVf5F/view
  
 ---
