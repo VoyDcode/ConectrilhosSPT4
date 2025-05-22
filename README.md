@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Front-End Design Engineering  
+### **Turma:** 1TDSPB  
 
-## Getting Started
+O projeto Conectrilhos foi desenvolvido utilizando Next.js 15.2.3, com foco em boas práticas de desenvolvimento, garantindo organização semântica, responsividade e experiência de usuário intuitiva.
+Este projeto foi desenvolvido com o intuito de aprimorar a experiência dos usuários de transporte público, oferecendo informações claras e atualizadas.
+---
 
-First, run the development server:
+## Estrutura Geral do Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### **Página Inicial (Home.tsx)**  
+**Descrição:** Apresenta o projeto Conectrilhos e exibe a interface de login do usuário..  
+**Características:**
+- Exibição do título principal da aplicação.  
+- Com a utilização de (`form`),(`div`),(`input`) e (`label`) possibilitamos campos de entrada para usuário e senha. contendo também a inclusão de botão com ícone interativo para exibição da senha.
+- Design limpo e direto, garantindo usabilidade e acessibilidade.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **Página de Serviços (page.tsx)**  
+**Descrição:** Exibe diversas informações úteis para o usuário sobre os serviços do sistema de transporte.  
+**Características:**
+- Há um campos de entrada no inicio da pagina utilizando (`<section>`) e (`<SearchBar>`) para o usuário possibilitando pesquisa dinâmica com a intenção de filtrar serviços.
+- Mapas: Visualização interativa das linhas de transporte.  
+- Status do Sistema: Atualizações em tempo real das operações.
+- Mensagens do Sistema: Comunicados oficiais e avisos.
+- Informações Gerais: Tarifas, horários e orientações.
+- O codigo utilizado majoratoriamente para as "blocagens" de codigo foi a tag (`<section>`).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### **Página de suporte ao usuário (faq.tsx)**  
+**Descrição:**  Página interativa que responde às dúvidas mais comuns dos usuários, totalmente dedicadas a cupons, status da via, carteira digital e suporte ao usuário.
+**Características:**
+- Estrutura com foco na interatividade dinamica, utilizando tags como `<accordion>` e `<div>` para a visibilidade da expansão e retenção dos tópicos .   
+- Design consistente com a identidade visual do projeto. Alta responsividade para garantir uma experiência fluida.  
+- Campo de busca integrado para facilitar a busca de dúvidas frequentes.  
+ 
+---
+**Video de Apresentração do Projeto:**
+- https://drive.google.com/file/d/1ntEdCbE6jq4ZkvHJNWDfMoqzMoVVVf5F/view
 
-To learn more about Next.js, take a look at the following resources:
+### Membros do Projeto
+Feedbacks são bem-vindos para melhorias contínuas! 🚆🚀
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Gabriel Gomes                                                                                   | Natasha Mauricio                                                                               | Victor Rodrigues                                                                              |
+|-------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| <img src="https://github.com/user-attachments/assets/2804f237-fa3e-44a0-8fd4-2bd31f2c7db0" width="150px"> | <img src="https://github.com/user-attachments/assets/b4362961-77c9-4d9f-8fd8-ec68476c0953" width="125px"> | <img src="https://github.com/user-attachments/assets/aa851d72-ced1-4501-8eec-69a0911c3af8" width="115px"> |
+| **RM: 559597**                                                                                 | **RM: 561159**                                                                                 | **RM: 560087**                                                                                |
+| [LinkedIn](https://www.linkedin.com/in/gabriel-gomes-cardoso-4513a9326/) <br> [GitHub](https://github.com/gaaaabz) | [LinkedIn](https://www.linkedin.com/in/natasha-mauricio-silva-santana/) <br> [GitHub](https://github.com/Natasha-Mauricio) | [LinkedIn](https://www.linkedin.com/in/victorrodrigues1227) <br> [GitHub](https://github.com/VoyDcode) |
