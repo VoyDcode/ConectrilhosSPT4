@@ -33,11 +33,16 @@ Este projeto foi desenvolvido com o intuito de aprimorar a experiência dos usu�
 **Características:**
 - Estrutura com foco na interatividade dinamica, utilizando tags como `<accordion>` e `<div>` para a visibilidade da expansão e retenção dos tópicos .   
 - Design consistente com a identidade visual do projeto. Alta responsividade para garantir uma experiência fluida.  
-- Campo de busca integrado para facilitar a busca de dúvidas frequentes.  
- 
+- Campo de busca integrado para facilitar a busca de dúvidas frequentes.
+
+
 ---
+
 **Video de Apresentração do Projeto:**
 - https://drive.google.com/file/d/1ntEdCbE6jq4ZkvHJNWDfMoqzMoVVVf5F/view
+ 
+---
+
 
 ### Membros do Projeto
 Feedbacks são bem-vindos para melhorias contínuas! 🚆🚀
