@@ -70,7 +70,7 @@ export default function ProblemasRelatadospage() {
   useEffect(() => {
     const usuario = localStorage.getItem("usuarioLogado")
       if (!usuario) {
-    navigate.push("/")
+    navigate.push("/login")
     return;
   }
     const parsedusuario = JSON.parse(usuario);

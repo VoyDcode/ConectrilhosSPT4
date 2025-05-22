@@ -1,8 +1,16 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect } from 'react'
+import { useRouter } from "next/navigation";
 
 export default function ServicosPage() {
+  const navigate = useRouter();
+  useEffect(() => {
+      const user = localStorage.getItem("usuarioLogado");
+      if (!user) {
+        navigate.push("/login");
+      }});
   return (
     <main className="min-h-screen bg-white py-8">
       <div className="container mx-auto px-4">

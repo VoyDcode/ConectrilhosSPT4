@@ -57,7 +57,7 @@ export default function CuponsPage() {
   useEffect(() => {
     const usuario = localStorage.getItem("usuarioLogado")
     if (!usuario) {
-      navigate.push("/")
+      navigate.push("/login")
       return
     }
  
